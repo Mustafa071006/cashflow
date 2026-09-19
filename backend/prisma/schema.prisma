@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  OWNER
+  USER
+}
+
+enum TransactionType {
+  INCOME
+  EXPENSE
+}
+
+enum CategoryType {
+  INCOME
+  EXPENSE
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String @unique
+  password String
+  role     Role   @default(USER)
+
+  wallets    Wallet[]
+  categories Category[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Wallet {
+  id      Int     @id @default(autoincrement())
+  name    String
+  balance Decimal @default(0.00) @db.Decimal(15, 2)
+
+  userId Int
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  transactions Transaction[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, name])
+  @@map("wallets")
+}
+
+model Category {
+  id   Int          @id @default(autoincrement())
+  name String
+  type CategoryType
+
+  icon String?
+
+  userId Int
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  transactions Transaction[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, name])
+  @@map("categories")
+}
+
+model Transaction {
+  id Int @id @default(autoincrement())
+
+  title  String
+  amount Decimal         @db.Decimal(15, 2)
+  type   TransactionType
+
+  note String?
+
+  transactionDate DateTime
+
+  walletId Int
+  wallet   Wallet @relation(fields: [walletId], references: [id], onDelete: Cascade)
+
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("transactions")
+}
