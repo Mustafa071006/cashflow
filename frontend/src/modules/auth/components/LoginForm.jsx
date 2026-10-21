@@ -52,12 +52,12 @@ function LoginForm() {
   };
 
   return (
-    <Card className="w-full max-w-md">
-      <h1 className="mb-2 text-3xl font-bold text-zinc-900 dark:text-white">
+    <Card className="w-full max-w-md" padding="p-8 sm:p-10">
+      <h1 className="mb-2 font-display text-hero-name font-semibold text-porcelain">
         {t.auth.welcomeBack}
       </h1>
 
-      <p className="mb-8 text-zinc-500 dark:text-zinc-400">{t.auth.signInContinue}</p>
+      <p className="mb-8 text-body text-ash">{t.auth.signInContinue}</p>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -94,7 +94,7 @@ function LoginForm() {
           <Link
             to="/forgot-password"
 
-            className="text-sm font-medium text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
+            className="text-utility text-electric-link hover:underline"
           >
             {t.auth.forgotPassword}
           </Link>
@@ -107,20 +107,20 @@ function LoginForm() {
 
           disabled={isSubmitting}
 
-          className="w-full shadow-lg shadow-zinc-900/10 dark:shadow-black/20"
+          className="w-full"
         >
           {isSubmitting ? t.auth.signingIn : t.auth.signIn}
         </Button>
       </form>
 
-      <div className="mt-6 text-center text-sm">
-        <span className="text-zinc-500 dark:text-zinc-400">
+      <div className="mt-6 text-center text-body">
+        <span className="text-ash">
           {language === "id" ? "Belum punya akun?" : "Don't have an account?"}
         </span>{" "}
         <Link
           to="/register"
 
-          className="font-medium text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
+          className="text-electric-link hover:underline"
         >
           {language === "id" ? "Daftar" : "Register"}
         </Link>

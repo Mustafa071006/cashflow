@@ -15,10 +15,7 @@ function Input({ label, error, className = "", type = "text", id, ...props }) {
   return (
     <div className="space-y-2">
       {label && (
-        <label
-          htmlFor={inputId}
-          className="text-sm font-semibold text-zinc-900 dark:text-zinc-100"
-        >
+        <label htmlFor={inputId} className="block text-utility font-semibold text-ash">
           {label}
         </label>
       )}
@@ -30,14 +27,12 @@ function Input({ label, error, className = "", type = "text", id, ...props }) {
           aria-invalid={Boolean(error) || undefined}
           aria-describedby={error ? errorId : undefined}
           className={clsx(
-            `w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 pr-12 text-sm text-zinc-900 transition-all duration-200 placeholder:text-zinc-400 hover:border-zinc-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:hover:border-zinc-600 dark:focus:border-indigo-400 dark:focus:ring-indigo-500/20`,
+            `h-11 w-full rounded-full border border-slate bg-white/4 pr-12 pl-6 text-body text-porcelain transition-colors duration-200 placeholder:text-slate hover:border-ash focus:outline-1 focus:outline-offset-1 focus:outline-apple-blue`,
 
-            error &&
-              `border-red-500 focus:border-red-500 focus:ring-red-500/20 dark:border-red-500 dark:focus:border-red-400`,
+            error && `border-expense hover:border-expense focus:outline-expense`,
 
             className
           )}
-
           {...props}
         />
 
@@ -47,15 +42,15 @@ function Input({ label, error, className = "", type = "text", id, ...props }) {
             onClick={() => setShowPassword(!showPassword)}
             aria-label={showPassword ? "Hide password" : "Show password"}
             aria-pressed={showPassword}
-            className="absolute top-1/2 right-3 flex -translate-y-1/2 items-center justify-center rounded-lg p-1 text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+            className="absolute top-1/2 right-3 flex -translate-y-1/2 items-center justify-center rounded-full p-1.5 text-ash transition hover:bg-white/5 hover:text-porcelain"
           >
-            {showPassword ? <EyeOff size={19} /> : <Eye size={19} />}
+            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
           </button>
         )}
       </div>
 
       {error && (
-        <p id={errorId} role="alert" className="text-sm text-red-500 dark:text-red-400">
+        <p id={errorId} role="alert" className="pl-6 text-utility text-expense">
           {error}
         </p>
       )}

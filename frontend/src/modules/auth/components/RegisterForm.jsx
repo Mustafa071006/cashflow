@@ -57,12 +57,12 @@ function RegisterForm() {
   };
 
   return (
-    <Card className="w-full max-w-md">
-      <h1 className="mb-2 text-3xl font-bold text-zinc-900 dark:text-white">
+    <Card className="w-full max-w-md" padding="p-8 sm:p-10">
+      <h1 className="mb-2 font-display text-hero-name font-semibold text-porcelain">
         {t.auth.registerTitle}
       </h1>
 
-      <p className="mb-8 text-zinc-500 dark:text-zinc-400">{t.auth.registerDescription}</p>
+      <p className="mb-8 text-body text-ash">{t.auth.registerDescription}</p>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -144,18 +144,18 @@ function RegisterForm() {
 
           disabled={isSubmitting}
 
-          className="w-full shadow-lg shadow-zinc-900/10 dark:shadow-black/20"
+          className="w-full"
         >
           {isSubmitting ? t.auth.registering : t.auth.register}
         </Button>
       </form>
 
-      <div className="mt-6 text-center text-sm">
-        <span className="text-zinc-500 dark:text-zinc-400">{t.auth.alreadyHaveAccount}</span>{" "}
+      <div className="mt-6 text-center text-body">
+        <span className="text-ash">{t.auth.alreadyHaveAccount}</span>{" "}
         <Link
           to="/login"
 
-          className="font-medium text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
+          className="text-electric-link hover:underline"
         >
           {t.auth.loginHere}
         </Link>

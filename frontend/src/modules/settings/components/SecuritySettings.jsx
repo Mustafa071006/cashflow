@@ -47,11 +47,11 @@ function SecuritySettings() {
     <Card>
       <div className="space-y-5">
         <div>
-          <h2 className="text-lg font-semibold text-zinc-900 dark:text-white">
+          <h2 className="font-display text-product-label font-semibold text-porcelain">
             {language === "id" ? "Keamanan" : "Security"}
           </h2>
 
-          <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="mt-1 text-body text-ash">
             {language === "id" ? "Ubah password akun Anda." : "Change your account password."}
           </p>
         </div>

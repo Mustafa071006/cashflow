@@ -13,7 +13,7 @@ import {
 import ChartCard from "@/components/ui/ChartCard";
 import Skeleton from "@/components/ui/Skeleton";
 
-import { CHART_COLORS } from "@/constants/chartColors";
+import { CHART_COLORS, CHART_TOOLTIP, CHART_UI } from "@/constants/chartColors";
 
 import formatCurrency from "@/utils/formatCurrency";
 import formatChartCurrency from "@/utils/formatChartCurrency";
@@ -62,17 +62,7 @@ function IncomeExpenseChart({
         title={title}
         subtitle={subtitle}
       >
-        <div
-          className="
-            flex
-            h-full
-            items-center
-            justify-center
-            text-sm
-            text-zinc-500
-            dark:text-zinc-400
-          "
-        >
+        <div className="flex h-full items-center justify-center rounded-nav bg-obsidian text-body text-ash">
           {
             language === "id"
               ? "Tidak ada data transaksi"
@@ -107,18 +97,14 @@ function IncomeExpenseChart({
         >
 
 
-          <CartesianGrid
-            strokeDasharray="3 3"
-            stroke="#27272a"
-            opacity={0.15}
-          />
+          <CartesianGrid stroke={CHART_UI.grid} vertical={false} />
 
 
 
           <XAxis
             dataKey="label"
             tick={{
-              fill: "#71717a",
+              fill: CHART_UI.axis,
               fontSize: 12,
             }}
             axisLine={false}
@@ -135,7 +121,7 @@ function IncomeExpenseChart({
               )
             }
             tick={{
-              fill: "#71717a",
+              fill: CHART_UI.axis,
               fontSize: 12,
             }}
             axisLine={false}
@@ -149,24 +135,12 @@ function IncomeExpenseChart({
               formatCurrency(value)
             }
 
-            contentStyle={{
-              backgroundColor:
-                "#18181b",
-
-              border:
-                "1px solid #27272a",
-
-              borderRadius:
-                "12px",
-
-              color:
-                "#fff",
-            }}
+            {...CHART_TOOLTIP}
           />
 
 
 
-          <Legend />
+          <Legend iconType="circle" iconSize={8} wrapperStyle={{ fontSize: 12, color: CHART_UI.axis }} />
 
 
 
@@ -181,7 +155,9 @@ function IncomeExpenseChart({
 
             fill={CHART_COLORS.income}
 
-            radius={[6, 6, 0, 0]}
+            radius={[8, 8, 0, 0]}
+
+            maxBarSize={28}
 
             animationDuration={800}
           />
@@ -199,7 +175,9 @@ function IncomeExpenseChart({
 
             fill={CHART_COLORS.expense}
 
-            radius={[6, 6, 0, 0]}
+            radius={[8, 8, 0, 0]}
+
+            maxBarSize={28}
 
             animationDuration={800}
           />

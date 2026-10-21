@@ -1,8 +1,68 @@
 @import "tailwindcss";
 @import "./animation.css";
 
-/* Enable class-based dark mode */
+/* The app is dark-only; `dark:` utilities still resolve via the .dark class on <html> */
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* Design tokens — see claude/DESIGN.md */
+@theme {
+  /* Surfaces & neutrals */
+  --color-obsidian: #000000;
+  --color-graphite: #0e0e0e;
+  --color-carbon: #1d1d1f;
+  --color-keyline: #282828;
+  --color-steel: #333336;
+  --color-slate: #6e6e73;
+  --color-ash: #86868b;
+  --color-porcelain: #f5f5f7;
+
+  /* Accents */
+  --color-apple-blue: #0071e3;
+  --color-electric-link: #2997ff;
+  --color-cobalt-link: #0066cc;
+  --color-copper-new: #b64400;
+  --color-optical-yellow: #ffd500;
+
+  /* Money semantics (Apple system colors, dark variants) */
+  --color-income: #30d158;
+  --color-expense: #ff453a;
+  --color-caution: #ff9f0a;
+
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --text-utility: 12px;
+  --text-utility--line-height: 1.33;
+  --text-utility--letter-spacing: -0.12px;
+  --text-body: 14px;
+  --text-body--line-height: 1.29;
+  --text-body--letter-spacing: -0.224px;
+  --text-section-nav: 17px;
+  --text-section-nav--line-height: 1.47;
+  --text-section-nav--letter-spacing: -0.374px;
+  --text-product-label: 19px;
+  --text-product-label--line-height: 1.21;
+  --text-product-label--letter-spacing: 0.228px;
+  --text-feature-stat: 28px;
+  --text-feature-stat--line-height: 1;
+  --text-feature-stat--letter-spacing: 0.196px;
+  --text-hero-name: 32px;
+  --text-hero-name--line-height: 1.13;
+  --text-hero-name--letter-spacing: 0.128px;
+  --text-headline: 40px;
+  --text-headline--line-height: 1.1;
+  --text-headline--letter-spacing: -0.12px;
+  --text-display-sm: 56px;
+  --text-display-sm--line-height: 1.07;
+  --text-display-sm--letter-spacing: -0.84px;
+
+  /* Radii */
+  --radius-card: 28px;
+  --radius-nav: 20px;
+  --radius-link: 10px;
+  --radius-compact: 36px;
+}
 
 html,
 body,
@@ -11,19 +71,25 @@ body,
 }
 
 html {
+  color-scheme: dark;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  @apply bg-white text-zinc-900 transition-colors duration-300;
+  @apply bg-obsidian font-sans text-porcelain;
+  font-size: 14px;
+  letter-spacing: -0.224px;
   overscroll-behavior-y: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.dark body {
-  @apply bg-zinc-950 text-white;
+/* Native form controls (e.g. <option>) follow the dark palette */
+select option {
+  background-color: var(--color-carbon);
+  color: var(--color-porcelain);
 }
 
 /* Any element opting into internal scrolling gets smooth, contained scroll */
@@ -31,9 +97,10 @@ body {
   scroll-behavior: smooth;
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-steel) transparent;
 }
 
-/* Thin, theme-aware scrollbars (WebKit) */
 .scroll-area::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -44,21 +111,8 @@ body {
 }
 
 .scroll-area::-webkit-scrollbar-thumb {
-  background-color: rgb(212 212 216 / 0.8);
+  background-color: var(--color-steel);
   border-radius: 9999px;
-}
-
-.dark .scroll-area::-webkit-scrollbar-thumb {
-  background-color: rgb(63 63 70 / 0.8);
-}
-
-.scroll-area {
-  scrollbar-width: thin;
-  scrollbar-color: rgb(212 212 216 / 0.8) transparent;
-}
-
-.dark .scroll-area {
-  scrollbar-color: rgb(63 63 70 / 0.8) transparent;
 }
 
 /* Skip-to-content link: visually hidden until focused via keyboard */
@@ -76,9 +130,8 @@ body {
 
 /* Consistent, visible keyboard focus ring app-wide; mouse users don't see it */
 :focus-visible {
-  outline: 2px solid #6366f1;
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline: 1px solid var(--color-apple-blue);
+  outline-offset: 1px;
 }
 
 /* Respect the OS-level "reduce motion" accessibility setting everywhere */

@@ -1,9 +1,10 @@
+// Elevation is expressed through surface shifts and 1px keylines, not drop shadows.
 export const SHADOWS = {
-  sm: "shadow-sm",
+  sm: "ring-1 ring-keyline",
 
-  md: "shadow",
+  md: "ring-1 ring-keyline",
 
-  lg: "shadow-lg",
+  lg: "ring-1 ring-slate",
 
-  xl: "shadow-xl",
+  xl: "ring-1 ring-slate",
 };

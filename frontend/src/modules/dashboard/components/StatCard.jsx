@@ -4,67 +4,35 @@ import Card from "@/components/ui/Card";
 
 function StatCard({ title, value, subtitle, icon: Icon, variant = "default", className }) {
   const iconStyle = {
-    balance: `
-      bg-blue-100
-      text-blue-600
+    balance: `text-electric-link`,
 
-      dark:bg-blue-500/20
-      dark:text-blue-400
-    `,
+    income: `text-income`,
 
-    income: `
-      bg-green-100
-      text-green-600
+    expense: `text-expense`,
 
-      dark:bg-green-500/20
-      dark:text-green-400
-    `,
-
-    expense: `
-      bg-red-100
-      text-red-600
-
-      dark:bg-red-500/20
-      dark:text-red-400
-    `,
-
-    default: `
-      bg-indigo-100
-      text-indigo-600
-
-      dark:bg-indigo-500/20
-      dark:text-indigo-400
-    `,
+    default: `text-porcelain`,
   };
 
   return (
-    <Card
-      hover
-
-      className={clsx(
-        `group transition-all duration-300 hover:-translate-y-1`,
-
-        className
-      )}
-    >
+    <Card hover className={clsx(`group`, className)}>
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">{title}</p>
+          <p className="text-body text-ash">{title}</p>
 
           {/* VALUE */}
 
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
+          <h2 className="mt-3 truncate font-display text-feature-stat font-semibold text-porcelain">
             {value}
           </h2>
 
-          <p className="mt-3 text-sm text-zinc-500 dark:text-zinc-400">{subtitle}</p>
+          <p className="mt-3 text-body text-ash">{subtitle}</p>
         </div>
 
         {Icon && (
           <div
-            className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl transition-all duration-300 group-hover:scale-110 sm:h-14 sm:w-14 ${iconStyle[variant]} `}
+            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-obsidian ${iconStyle[variant]}`}
           >
-            <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
+            <Icon size={20} strokeWidth={1.75} />
           </div>
         )}
       </div>

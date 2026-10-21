@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { CHART_COLORS, CHART_UI } from "@/constants/chartColors";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -28,7 +29,7 @@ function CashFlowChart({ data, summary, months, setMonths }) {
 
       value: summary?.income ?? 0,
 
-      color: "text-green-600 dark:text-green-400",
+      color: "text-income",
     },
 
     {
@@ -36,7 +37,7 @@ function CashFlowChart({ data, summary, months, setMonths }) {
 
       value: summary?.expense ?? 0,
 
-      color: "text-red-600 dark:text-red-400",
+      color: "text-expense",
     },
 
     {
@@ -46,8 +47,8 @@ function CashFlowChart({ data, summary, months, setMonths }) {
 
       color:
         (summary?.cashflow ?? 0) >= 0
-          ? "text-indigo-600 dark:text-indigo-400"
-          : "text-red-600 dark:text-red-400",
+          ? "text-porcelain"
+          : "text-expense",
     },
   ];
 
@@ -69,21 +70,21 @@ function CashFlowChart({ data, summary, months, setMonths }) {
   ];
 
   return (
-    <div className="rounded-3xl border border-zinc-200 bg-white p-4 shadow-sm transition-all duration-300 hover:shadow-md sm:p-6 dark:border-zinc-800 dark:bg-zinc-900">
+    <div className="rounded-card bg-carbon p-5 sm:p-8">
       {/* HEADER */}
 
       <div className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600 dark:bg-indigo-500/20 dark:text-indigo-400">
-            <TrendingUp size={22} />
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-obsidian text-porcelain">
+            <TrendingUp size={20} strokeWidth={1.75} />
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
+            <h2 className="font-display text-hero-name font-semibold text-porcelain">
               {language === "id" ? "Arus Kas" : "Cash Flow"}
             </h2>
 
-            <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+            <p className="mt-1 text-body text-ash">
               {language === "id"
                 ? "Pantau pemasukan dan pengeluaran Anda dari waktu ke waktu."
                 : "Track your income and expenses over time."}
@@ -107,11 +108,11 @@ function CashFlowChart({ data, summary, months, setMonths }) {
           <div
             key={card.title}
 
-            className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950"
+            className="rounded-card bg-obsidian p-6"
           >
-            <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">{card.title}</p>
+            <p className="text-body text-ash">{card.title}</p>
 
-            <h3 className={`mt-3 text-2xl font-bold ${card.color} `}>
+            <h3 className={`mt-3 font-display text-feature-stat font-semibold ${card.color}`}>
               {card.title === (language === "id" ? "Arus Kas Bersih" : "Net Cash Flow") &&
               card.value > 0
                 ? "+"
@@ -127,27 +128,27 @@ function CashFlowChart({ data, summary, months, setMonths }) {
 
       <div className="mb-6 flex gap-6">
         <div className="flex items-center gap-2">
-          <span className="h-3 w-3 rounded-full bg-green-500" />
+          <span className="h-2 w-2 rounded-full bg-income" />
 
-          <span className="text-sm text-zinc-500 dark:text-zinc-400">
+          <span className="text-utility text-ash">
             {language === "id" ? "Pemasukan" : "Income"}
           </span>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="h-3 w-3 rounded-full bg-red-500" />
+          <span className="h-2 w-2 rounded-full bg-expense" />
 
-          <span className="text-sm text-zinc-500 dark:text-zinc-400">
+          <span className="text-utility text-ash">
             {language === "id" ? "Pengeluaran" : "Expense"}
           </span>
         </div>
       </div>
 
       {data.length === 0 ? (
-        <div className="flex h-64 flex-col items-center justify-center rounded-2xl border border-dashed border-zinc-300 dark:border-zinc-700">
-          <TrendingUp size={36} />
+        <div className="flex h-64 flex-col items-center justify-center rounded-card bg-obsidian text-ash">
+          <TrendingUp size={32} strokeWidth={1.5} />
 
-          <h3 className="mt-5 text-xl font-semibold text-zinc-900 dark:text-white">
+          <h3 className="mt-4 font-display text-product-label font-semibold text-porcelain">
             {language === "id" ? "Tidak ada data transaksi" : "No transaction data"}
           </h3>
         </div>
@@ -166,33 +167,29 @@ function CashFlowChart({ data, summary, months, setMonths }) {
             >
               <defs>
                 <linearGradient id="income" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#22c55e" stopOpacity={0.35} />
+                  <stop offset="5%" stopColor={CHART_COLORS.income} stopOpacity={0.25} />
 
-                  <stop offset="95%" stopColor="#22c55e" stopOpacity={0} />
+                  <stop offset="95%" stopColor={CHART_COLORS.income} stopOpacity={0} />
                 </linearGradient>
 
                 <linearGradient id="expense" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#ef4444" stopOpacity={0.35} />
+                  <stop offset="5%" stopColor={CHART_COLORS.expense} stopOpacity={0.25} />
 
-                  <stop offset="95%" stopColor="#ef4444" stopOpacity={0} />
+                  <stop offset="95%" stopColor={CHART_COLORS.expense} stopOpacity={0} />
                 </linearGradient>
               </defs>
 
               <CartesianGrid
-                stroke="#3f3f46"
-
-                strokeDasharray="4 4"
+                stroke={CHART_UI.grid}
 
                 vertical={false}
-
-                opacity={0.2}
               />
 
               <XAxis
                 dataKey="label"
 
                 tick={{
-                  fill: "#a1a1aa",
+                  fill: CHART_UI.axis,
 
                   fontSize: 12,
                 }}
@@ -204,7 +201,7 @@ function CashFlowChart({ data, summary, months, setMonths }) {
 
               <YAxis
                 tick={{
-                  fill: "#a1a1aa",
+                  fill: CHART_UI.axis,
 
                   fontSize: 12,
                 }}
@@ -218,7 +215,7 @@ function CashFlowChart({ data, summary, months, setMonths }) {
 
               <Tooltip
                 cursor={{
-                  stroke: "#52525b",
+                  stroke: CHART_UI.grid,
 
                   strokeDasharray: "4 4",
                 }}
@@ -231,11 +228,11 @@ function CashFlowChart({ data, summary, months, setMonths }) {
 
                 dataKey="income"
 
-                stroke="#22c55e"
+                stroke={CHART_COLORS.income}
 
                 fill="url(#income)"
 
-                strokeWidth={3}
+                strokeWidth={2}
 
                 animationDuration={900}
               />
@@ -245,11 +242,11 @@ function CashFlowChart({ data, summary, months, setMonths }) {
 
                 dataKey="expense"
 
-                stroke="#ef4444"
+                stroke={CHART_COLORS.expense}
 
                 fill="url(#expense)"
 
-                strokeWidth={3}
+                strokeWidth={2}
 
                 animationDuration={900}
               />

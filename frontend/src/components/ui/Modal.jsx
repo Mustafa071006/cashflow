@@ -32,7 +32,7 @@ function Modal({ open, title, children, onClose }) {
       {open && (
         <motion.div
           {...withReducedMotion(modalBackdrop, reduced)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 backdrop-blur-md"
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) onClose?.();
           }}
@@ -44,10 +44,10 @@ function Modal({ open, title, children, onClose }) {
             aria-modal="true"
             aria-labelledby={titleId}
             tabIndex={-1}
-            className="max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-3xl border border-zinc-200 bg-white p-6 shadow-2xl shadow-black/20 transition-colors duration-300 dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-black/40"
+            className="scroll-area max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-card bg-carbon p-6 ring-1 ring-keyline sm:p-8"
           >
-            <div className="mb-6 flex items-center justify-between">
-              <h2 id={titleId} className="text-xl font-semibold text-zinc-900 dark:text-white">
+            <div className="mb-6 flex items-center justify-between gap-4">
+              <h2 id={titleId} className="font-display text-feature-stat font-semibold text-porcelain">
                 {title}
               </h2>
 
@@ -55,9 +55,9 @@ function Modal({ open, title, children, onClose }) {
                 type="button"
                 onClick={onClose}
                 aria-label="Close dialog"
-                className="flex h-9 w-9 items-center justify-center rounded-xl text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 focus-visible:ring-2 focus-visible:ring-indigo-500 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-steel/60 text-ash transition hover:bg-steel hover:text-porcelain"
               >
-                <X size={18} />
+                <X size={16} />
               </button>
             </div>
 

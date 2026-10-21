@@ -1,9 +1,9 @@
 export const TYPOGRAPHY = {
-  h1: "text-4xl font-bold",
+  h1: "font-display text-hero-name font-semibold",
 
-  h2: "text-3xl font-semibold",
+  h2: "font-display text-feature-stat font-semibold",
 
-  body: "text-base",
+  body: "text-body",
 
-  caption: "text-sm",
+  caption: "text-utility",
 };

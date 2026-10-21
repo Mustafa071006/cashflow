@@ -8,12 +8,12 @@ function Card({ children, className = "", hover = false, padding = "p-6", ...pro
 
   return (
     <motion.div
-      whileHover={hover && !reduced ? { y: -4 } : undefined}
+      whileHover={hover && !reduced ? { y: -2 } : undefined}
       transition={{ duration: 0.2 }}
       className={clsx(
-        `rounded-3xl border border-zinc-200 bg-white shadow-sm transition-colors duration-300 dark:border-zinc-800 dark:bg-zinc-900`,
+        `rounded-card bg-carbon transition-colors duration-300`,
 
-        hover && `hover:shadow-lg`,
+        hover && `hover:bg-[#232325]`,
 
         padding,
 

@@ -37,11 +37,11 @@ function LanguageSettings() {
     <Card>
       <div className="space-y-5">
         <div>
-          <h2 className="text-lg font-semibold text-zinc-900 dark:text-white">
+          <h2 className="font-display text-product-label font-semibold text-porcelain">
             {language === "id" ? "Bahasa" : "Language"}
           </h2>
 
-          <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="mt-1 text-body text-ash">
             {language === "id"
               ? "Pilih bahasa yang ingin digunakan pada aplikasi."
               : "Choose your preferred application language."}
@@ -49,7 +49,7 @@ function LanguageSettings() {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-zinc-900 dark:text-white">
+          <label className="block text-utility font-semibold text-ash">
             {language === "id" ? "Bahasa Aplikasi" : "Application Language"}
           </label>
 

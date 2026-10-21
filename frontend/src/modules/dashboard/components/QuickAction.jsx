@@ -44,18 +44,18 @@ function QuickAction() {
       {/* HEADER */}
 
       <div className="mb-6">
-        <h2 className="text-xl font-bold text-zinc-900 dark:text-white">
+        <h2 className="font-display text-product-label font-semibold text-porcelain">
           {t.dashboard.quickActions}
         </h2>
 
-        <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+        <p className="mt-1 text-body text-ash">
           {t.dashboard.quickActionsSubtitle}
         </p>
       </div>
 
       {/* ACTION GRID */}
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {actions.map((action) => {
           const Icon = action.icon;
 
@@ -63,25 +63,21 @@ function QuickAction() {
             <Button
               key={action.key}
 
-              variant="secondary"
+              variant="ghost"
 
               onClick={() => navigate(action.path)}
 
-              className="flex h-auto flex-row items-center justify-start gap-4 rounded-2xl px-5 py-4 transition-all duration-300 hover:-translate-y-1 sm:flex-col sm:justify-center sm:py-6 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:bg-zinc-800"
+              className="flex h-auto flex-row items-center justify-start gap-4 rounded-card bg-obsidian px-5 py-4 hover:bg-obsidian/60 sm:flex-col sm:justify-center sm:py-6"
             >
               {/* ICON */}
 
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-zinc-100 dark:bg-zinc-800">
-                <Icon
-                  size={24}
-
-                  className="text-zinc-900 dark:text-zinc-100"
-                />
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-carbon">
+                <Icon size={20} strokeWidth={1.75} className="text-porcelain" />
               </div>
 
               {/* TEXT */}
 
-              <span className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+              <span className="text-body font-medium text-porcelain">
                 {t.dashboard[action.key]}
               </span>
             </Button>

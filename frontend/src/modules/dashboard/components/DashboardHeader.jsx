@@ -33,14 +33,13 @@ function DashboardHeader() {
         : "User";
 
   return (
-    <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+    <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
       <div>
-        <h1 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-          {t.dashboard[greetingKey]},{" "}
-          <span className="text-zinc-900 dark:text-zinc-100">{username}</span>
+        <h1 className="font-display text-hero-name font-semibold text-porcelain md:text-headline">
+          {t.dashboard[greetingKey]}, {username}
         </h1>
 
-        <p className="mt-2 text-base text-zinc-500 dark:text-zinc-400">{t.dashboard.overview}</p>
+        <p className="mt-2 text-section-nav text-ash">{t.dashboard.overview}</p>
       </div>
     </div>
   );

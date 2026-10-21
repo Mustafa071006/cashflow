@@ -11,7 +11,7 @@ import {
 import ChartCard from "@/components/ui/ChartCard";
 import Skeleton from "@/components/ui/Skeleton";
 
-import { PIE_COLORS } from "@/constants/chartColors";
+import { CHART_TOOLTIP, CHART_UI, PIE_COLORS } from "@/constants/chartColors";
 
 import formatCurrency from "@/utils/formatCurrency";
 
@@ -69,19 +69,7 @@ function ExpenseCategoryChart({
         subtitle={subtitle}
       >
 
-        <div
-          className="
-            flex
-            h-full
-            items-center
-            justify-center
-
-            text-sm
-
-            text-zinc-500
-            dark:text-zinc-400
-          "
-        >
+        <div className="flex h-full items-center justify-center rounded-nav bg-obsidian text-body text-ash">
 
           {
             language === "id"
@@ -134,6 +122,10 @@ function ExpenseCategoryChart({
 
             paddingAngle={3}
 
+            stroke="#1d1d1f"
+
+            strokeWidth={2}
+
             animationDuration={800}
           >
 
@@ -168,17 +160,7 @@ function ExpenseCategoryChart({
             }
 
 
-            contentStyle={{
-              backgroundColor: "#18181b",
-
-              border:
-                "1px solid #27272a",
-
-              borderRadius:
-                "12px",
-
-              color: "#fff",
-            }}
+            {...CHART_TOOLTIP}
 
           />
 
@@ -192,8 +174,13 @@ function ExpenseCategoryChart({
 
             height={36}
 
+            iconType="circle"
+
+            iconSize={8}
+
             wrapperStyle={{
               fontSize: "12px",
+              color: CHART_UI.axis,
             }}
 
           />

@@ -1,9 +1,11 @@
 export const RADIUS = {
-  sm: "rounded-lg",
+  sm: "rounded-link",
 
-  md: "rounded-xl",
+  md: "rounded-nav",
 
-  lg: "rounded-2xl",
+  lg: "rounded-card",
 
-  xl: "rounded-3xl",
+  xl: "rounded-card",
+
+  pill: "rounded-full",
 };

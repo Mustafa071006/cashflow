@@ -73,19 +73,7 @@ function TopCategoryList({
         subtitle="Highest expense categories"
       >
 
-        <div
-          className="
-            flex
-            h-full
-            items-center
-            justify-center
-
-            text-sm
-
-            text-zinc-500
-            dark:text-zinc-400
-          "
-        >
+        <div className="flex h-full items-center justify-center rounded-nav bg-obsidian text-body text-ash">
 
           {
             language === "id"
@@ -128,11 +116,7 @@ function TopCategoryList({
 
 
 
-      <div
-        className="
-          space-y-4
-        "
-      >
+      <div className="scroll-area h-full space-y-2 overflow-y-auto">
 
 
 
@@ -143,75 +127,25 @@ function TopCategoryList({
 
             key={category.id}
 
-            className="
-              flex
-              items-center
-              justify-between
-
-              rounded-xl
-
-              border
-              border-zinc-200
-
-              p-4
-
-              transition
-
-              hover:bg-zinc-50
-
-
-              dark:border-zinc-800
-
-              dark:hover:bg-zinc-900
-            "
+            className="flex items-center justify-between gap-4 rounded-nav bg-obsidian p-4"
 
           >
 
 
 
 
-            <div
-              className="
-                flex
-                items-center
-                gap-3
-              "
-            >
+            <div className="flex min-w-0 items-center gap-3">
 
 
 
 
               <div
 
-                className="
-                  flex
-                  h-12
-                  w-12
-
-                  items-center
-                  justify-center
-
-                  rounded-xl
-
-
-                  bg-zinc-100
-
-                  text-zinc-900
-
-
-                  transition
-
-
-                  dark:bg-zinc-800
-
-                  dark:text-zinc-100
-                "
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-carbon text-porcelain"
 
               >
 
-                <Tags
-                  size={22}
-                />
+                <Tags size={18} strokeWidth={1.75} />
 
               </div>
 
@@ -225,13 +159,7 @@ function TopCategoryList({
 
                 <h3
 
-                  className="
-                    font-medium
-
-                    text-zinc-900
-
-                    dark:text-white
-                  "
+                  className="truncate text-body font-semibold text-porcelain"
 
                 >
 
@@ -245,13 +173,7 @@ function TopCategoryList({
 
                 <p
 
-                  className="
-                    text-sm
-
-                    text-zinc-500
-
-                    dark:text-zinc-400
-                  "
+                  className="text-utility text-ash"
 
                 >
 
@@ -281,11 +203,7 @@ function TopCategoryList({
 
             <span
 
-              className="
-                font-semibold
-
-                text-red-500
-              "
+              className="text-body font-semibold whitespace-nowrap text-expense"
 
             >
 

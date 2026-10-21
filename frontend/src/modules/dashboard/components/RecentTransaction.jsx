@@ -15,16 +15,16 @@ function RecentTransaction({ transactions }) {
     <Card>
       <div className="mb-6 flex items-center justify-between gap-3">
         <div className="min-w-0">
-          <h2 className="truncate text-xl font-bold text-zinc-900 dark:text-white">
+          <h2 className="truncate font-display text-product-label font-semibold text-porcelain">
             {language === "id" ? "Transaksi Terbaru" : "Recent Transactions"}
           </h2>
 
-          <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="mt-1 text-body text-ash">
             {language === "id" ? "Aktivitas terbaru Anda" : "Your latest activity"}
           </p>
         </div>
 
-        <Button variant="ghost" size="sm" className="rounded-xl">
+        <Button variant="ghost" size="sm" aria-label="More">
           <MoreHorizontal size={18} />
         </Button>
       </div>
@@ -41,10 +41,10 @@ function RecentTransaction({ transactions }) {
               : "Start recording your income and expenses to see your latest activity."
           }
 
-          className="h-56"
+          className="h-56 bg-obsidian"
         />
       ) : (
-        <div className="space-y-3">
+        <div className="divide-y divide-steel/70">
           {transactions.map((transaction) => {
             const isIncome = transaction.type === "INCOME";
 
@@ -52,25 +52,27 @@ function RecentTransaction({ transactions }) {
               <div
                 key={transaction.id}
 
-                className="flex flex-col gap-4 rounded-2xl border border-transparent p-4 transition-all duration-300 hover:border-zinc-200 hover:bg-zinc-50 sm:flex-row sm:items-center sm:justify-between dark:hover:border-zinc-800 dark:hover:bg-zinc-950"
+                className="flex flex-col gap-3 py-4 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div className="flex min-w-0 items-center gap-4">
                   <div
-                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${
-                      isIncome
-                        ? `bg-green-100 text-green-600 dark:bg-green-500/20 dark:text-green-400`
-                        : `bg-red-100 text-red-600 dark:bg-red-500/20 dark:text-red-400`
-                    } `}
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-obsidian ${
+                      isIncome ? `text-income` : `text-expense`
+                    }`}
                   >
-                    {isIncome ? <ArrowDownCircle size={22} /> : <ArrowUpCircle size={22} />}
+                    {isIncome ? (
+                      <ArrowDownCircle size={18} strokeWidth={1.75} />
+                    ) : (
+                      <ArrowUpCircle size={18} strokeWidth={1.75} />
+                    )}
                   </div>
 
                   <div className="min-w-0">
-                    <h3 className="truncate font-semibold text-zinc-900 dark:text-white">
+                    <h3 className="truncate text-body font-semibold text-porcelain">
                       {transaction.title}
                     </h3>
 
-                    <p className="truncate text-sm text-zinc-500 dark:text-zinc-400">
+                    <p className="truncate text-utility text-ash">
                       {transaction.category?.name ?? "-"}
                     </p>
                   </div>
@@ -78,16 +80,12 @@ function RecentTransaction({ transactions }) {
 
                 <div className="text-left sm:text-right">
                   <p
-                    className={`font-semibold ${
-                      isIncome
-                        ? `text-green-600 dark:text-green-400`
-                        : `text-red-600 dark:text-red-400`
-                    } `}
+                    className={`text-body font-semibold ${isIncome ? `text-income` : `text-expense`}`}
                   >
                     {isIncome ? "+" : "-"} {formatCurrency(transaction.amount)}
                   </p>
 
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                  <p className="text-utility text-ash">
                     {new Date(transaction.transactionDate).toLocaleDateString(
                       language === "id" ? "id-ID" : "en-US",
 

@@ -40,14 +40,7 @@ function ReportSummaryCards({
   if (loading) {
 
     return (
-      <div
-        className="
-          grid
-          gap-5
-          sm:grid-cols-2
-          xl:grid-cols-4
-        "
-      >
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
 
         {[...Array(4)].map((_, index) => (
 
@@ -82,7 +75,7 @@ function ReportSummaryCards({
       icon: TrendingUp,
 
       color:
-        "bg-green-100 text-green-600 dark:bg-green-500/20 dark:text-green-400",
+        "text-income",
     },
 
 
@@ -101,7 +94,7 @@ function ReportSummaryCards({
       icon: TrendingDown,
 
       color:
-        "bg-red-100 text-red-600 dark:bg-red-500/20 dark:text-red-400",
+        "text-expense",
     },
 
 
@@ -120,7 +113,7 @@ function ReportSummaryCards({
       icon: Wallet,
 
       color:
-        "bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400",
+        "text-electric-link",
     },
 
 
@@ -137,7 +130,7 @@ function ReportSummaryCards({
       icon: Receipt,
 
       color:
-        "bg-purple-100 text-purple-600 dark:bg-purple-500/20 dark:text-purple-400",
+        "text-porcelain",
     },
 
   ];
@@ -148,14 +141,7 @@ function ReportSummaryCards({
 
   return (
 
-    <div
-      className="
-        grid
-        gap-5
-        sm:grid-cols-2
-        xl:grid-cols-4
-      "
-    >
+    <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
 
       {cards.map((card) => (
 

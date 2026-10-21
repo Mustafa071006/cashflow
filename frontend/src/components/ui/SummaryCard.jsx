@@ -1,86 +1,19 @@
-function SummaryCard({
-  title,
-  value,
-  icon: Icon,
-  color = "bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400",
-}) {
+function SummaryCard({ title, value, icon: Icon, color = "text-electric-link" }) {
   return (
-    <div
-      className="
-        rounded-2xl
-        border
-        border-gray-200
-        bg-white
-        p-5
-        shadow-sm
-        transition
-        hover:shadow-md
-        dark:border-gray-800
-        dark:bg-gray-900
-      "
-    >
-
-      <div
-        className="
-          flex
-          items-start
-          justify-between
-        "
-      >
-
+    <div className="rounded-card bg-carbon p-6">
+      <div className="flex items-start justify-between">
         <div>
+          <p className="text-body text-ash">{title}</p>
 
-          <p
-            className="
-              text-sm
-              text-gray-500
-              dark:text-gray-400
-            "
-          >
-            {title}
-          </p>
-
-
-          <h3
-            className="
-              mt-2
-              text-2xl
-              font-bold
-              text-gray-900
-              dark:text-white
-            "
-          >
-            {value}
-          </h3>
-
+          <h3 className="mt-3 font-display text-feature-stat font-semibold text-porcelain">{value}</h3>
         </div>
 
-
-
-        <div
-          className={`
-            flex
-            h-12
-            w-12
-            items-center
-            justify-center
-            rounded-xl
-            ${color}
-          `}
-        >
-
-          {Icon && (
-            <Icon size={24} />
-          )}
-
+        <div className={`flex h-11 w-11 items-center justify-center rounded-full bg-obsidian ${color}`}>
+          {Icon && <Icon size={20} />}
         </div>
-
-
       </div>
-
     </div>
   );
 }
-
 
 export default SummaryCard;

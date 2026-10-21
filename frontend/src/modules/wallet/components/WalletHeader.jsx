@@ -8,157 +8,44 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import en from "@/locales/en";
 import id from "@/locales/id";
 
-
-function WalletHeader({
-  wallets,
-  onAddWallet,
-}) {
-
+function WalletHeader({ wallets, onAddWallet }) {
   const totalBalance = calculateTotalBalance(wallets);
-
 
   const { language } = useLanguage();
 
-
-  const t =
-    language === "id"
-      ? id
-      : en;
-
-
+  const t = language === "id" ? id : en;
 
   return (
-    <div
-      className="
-        mb-8
-        flex
-        flex-col
-        gap-6
-        lg:flex-row
-        lg:items-end
-        lg:justify-between
-      "
-    >
-
+    <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
       <div>
+        <p className="font-display text-product-label font-semibold text-ash">{t.wallet.label}</p>
 
-
-        <p
-          className="
-            text-sm
-            font-medium
-            uppercase
-            tracking-widest
-            text-zinc-900
-            dark:text-zinc-100
-          "
-        >
-          {t.wallet.label}
-        </p>
-
-
-
-        <h1
-          className="
-            mt-2
-            text-4xl
-            font-bold
-            tracking-tight
-            text-zinc-900
-            dark:text-white
-          "
-        >
+        <h1 className="mt-2 font-display text-hero-name font-semibold text-porcelain md:text-headline">
           {t.wallet.title}
         </h1>
 
+        <p className="mt-3 max-w-xl text-section-nav text-ash">{t.wallet.description}</p>
 
+        <div className="mt-10">
+          <p className="text-body text-ash">{t.wallet.totalBalance}</p>
 
-        <p
-          className="
-            mt-3
-            max-w-xl
-            text-zinc-500
-            dark:text-zinc-400
-          "
-        >
-          {t.wallet.description}
-        </p>
-
-
-
-
-        <div
-          className="
-            mt-8
-          "
-        >
-
-          <p
-            className="
-              text-sm
-              font-medium
-              text-zinc-500
-              dark:text-zinc-400
-            "
-          >
-            {t.wallet.totalBalance}
-          </p>
-
-
-
-          <h2
-            className="
-              mt-2
-              text-5xl
-              font-bold
-              tracking-tight
-              text-zinc-900
-              dark:text-white
-            "
-          >
+          <h2 className="mt-2 font-display text-headline font-semibold text-porcelain md:text-display-sm">
             {formatCurrency(totalBalance)}
           </h2>
 
-
-
-          <p
-            className="
-              mt-2
-              text-sm
-              text-zinc-500
-              dark:text-zinc-400
-            "
-          >
+          <p className="mt-2 text-body text-ash">
             {language === "id"
               ? `Di ${wallets.length} dompet`
-              : `Across ${wallets.length} wallet${wallets.length !== 1 ? "s" : ""}`
-            }
+              : `Across ${wallets.length} wallet${wallets.length !== 1 ? "s" : ""}`}
           </p>
-
-
-
         </div>
-
-
       </div>
 
-
-
-
-      <Button
-        onClick={onAddWallet}
-        size="lg"
-        variant="primary"
-        className="w-full lg:w-auto"
-      >
+      <Button onClick={onAddWallet} variant="primary" className="w-full lg:w-auto">
         + {t.wallet.addWallet}
       </Button>
-
-
-
     </div>
   );
 }
-
 
 export default WalletHeader;

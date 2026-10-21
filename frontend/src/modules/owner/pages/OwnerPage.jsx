@@ -14,7 +14,7 @@ function OwnerPage() {
     return (
       <div role="status" aria-live="polite" aria-label={loadingLabel} className="space-y-8">
         <span className="sr-only">{loadingLabel}…</span>
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-5">
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
           <Skeleton className="h-28" />
           <Skeleton className="h-28" />
           <Skeleton className="h-28" />
@@ -39,11 +39,11 @@ function OwnerPage() {
       {/* HEADER */}
 
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
+        <h1 className="font-display text-hero-name font-semibold text-porcelain md:text-headline">
           {language === "id" ? "Dasbor Owner" : "Owner Dashboard"}
         </h1>
 
-        <p className="mt-2 text-zinc-500 dark:text-zinc-400">
+        <p className="mt-2 text-section-nav text-ash">
           {language === "id"
             ? "Pantau sistem dan kelola pengguna CashFlow."
             : "Monitor the system and manage CashFlow users."}
@@ -52,53 +52,53 @@ function OwnerPage() {
 
       {/* OWNER STATISTICS */}
 
-      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-5">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
         <Card>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="text-body text-ash">
             {language === "id" ? "Total Pengguna" : "Total Users"}
           </p>
 
-          <h2 className="mt-3 text-3xl font-bold text-zinc-900 dark:text-white">
+          <h2 className="mt-3 font-display text-feature-stat font-semibold text-porcelain">
             {stats?.totalUsers || 0}
           </h2>
         </Card>
 
         <Card>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="text-body text-ash">
             {language === "id" ? "Dompet Saya" : "My Wallets"}
           </p>
 
-          <h2 className="mt-3 text-3xl font-bold text-zinc-900 dark:text-white">
+          <h2 className="mt-3 font-display text-feature-stat font-semibold text-porcelain">
             {stats?.totalWallet || 0}
           </h2>
         </Card>
 
         <Card>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="text-body text-ash">
             {language === "id" ? "Transaksi Saya" : "My Transactions"}
           </p>
 
-          <h2 className="mt-3 text-3xl font-bold text-zinc-900 dark:text-white">
+          <h2 className="mt-3 font-display text-feature-stat font-semibold text-porcelain">
             {stats?.totalTransactions || 0}
           </h2>
         </Card>
 
         <Card>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="text-body text-ash">
             {language === "id" ? "Pemasukan Saya" : "My Income"}
           </p>
 
-          <h2 className="mt-3 text-xl font-bold text-green-600 dark:text-green-400">
+          <h2 className="mt-3 truncate font-display text-product-label font-semibold text-income">
             {formatRupiah(stats?.income)}
           </h2>
         </Card>
 
         <Card>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="text-body text-ash">
             {language === "id" ? "Pengeluaran Saya" : "My Expenses"}
           </p>
 
-          <h2 className="mt-3 text-xl font-bold text-red-600 dark:text-red-400">
+          <h2 className="mt-3 truncate font-display text-product-label font-semibold text-expense">
             {formatRupiah(stats?.expense)}
           </h2>
         </Card>
@@ -108,28 +108,28 @@ function OwnerPage() {
 
       <Card>
         <div className="mb-5 flex items-center justify-between">
-          <h2 className="text-xl font-semibold text-zinc-900 dark:text-white">
+          <h2 className="font-display text-product-label font-semibold text-porcelain">
             {language === "id" ? "Ringkasan Pengguna" : "User Overview"}
           </h2>
 
-          <span className="text-sm text-zinc-500">
+          <span className="text-utility text-ash">
             {users.length} {language === "id" ? "Pengguna" : "Users"}
           </span>
         </div>
 
-        <div className="overflow-x-auto">
+        <div className="scroll-area overflow-x-auto">
           <table className="w-full min-w-full text-left">
             <thead>
-              <tr className="border-b border-zinc-200 dark:border-zinc-800">
-                <th scope="col" className="px-4 py-3 text-sm">
+              <tr className="border-b border-steel">
+                <th scope="col" className="px-4 py-3 text-utility font-semibold text-ash">
                   {language === "id" ? "Nama" : "Name"}
                 </th>
 
-                <th scope="col" className="px-4 py-3 text-sm">
+                <th scope="col" className="px-4 py-3 text-utility font-semibold text-ash">
                   Email
                 </th>
 
-                <th scope="col" className="px-4 py-3 text-sm">
+                <th scope="col" className="px-4 py-3 text-utility font-semibold text-ash">
                   Role
                 </th>
               </tr>
@@ -140,13 +140,13 @@ function OwnerPage() {
                 <tr
                   key={user.id}
 
-                  className="border-b border-zinc-100 dark:border-zinc-800"
+                  className="border-b border-steel/60 last:border-0"
                 >
-                  <td className="px-4 py-3 text-sm">{user.name}</td>
+                  <td className="px-4 py-3 text-body font-medium text-porcelain">{user.name}</td>
 
-                  <td className="px-4 py-3 text-sm">{user.email}</td>
+                  <td className="px-4 py-3 text-body text-ash">{user.email}</td>
 
-                  <td className="px-4 py-3 text-sm">{user.role}</td>
+                  <td className="px-4 py-3 text-body text-ash">{user.role}</td>
                 </tr>
               ))}
             </tbody>

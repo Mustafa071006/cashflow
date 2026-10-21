@@ -12,20 +12,20 @@ function SettingsPage() {
   const { language } = useLanguage();
 
   return (
-    <div className="space-y-6">
+    <div className="max-w-3xl space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-zinc-900 dark:text-white">
+        <h1 className="font-display text-hero-name font-semibold text-porcelain md:text-headline">
           {language === "id" ? "Pengaturan" : "Settings"}
         </h1>
 
-        <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
+        <p className="mt-2 text-section-nav text-ash">
           {language === "id"
             ? "Kelola preferensi akun dan pengaturan aplikasi Anda."
             : "Manage your account preferences and application settings."}
         </p>
       </div>
 
-      <div className="grid gap-6">
+      <div className="grid gap-4">
         <ProfileSettings />
 
         <SecuritySettings />

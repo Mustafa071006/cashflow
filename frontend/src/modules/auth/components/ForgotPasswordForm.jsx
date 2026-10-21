@@ -77,8 +77,8 @@ function ForgotPasswordForm() {
   };
 
   return (
-    <Card className="w-full max-w-md">
-      <h1 className="mb-2 text-3xl font-bold text-zinc-900 dark:text-white">
+    <Card className="w-full max-w-md" padding="p-8 sm:p-10">
+      <h1 className="mb-2 font-display text-hero-name font-semibold text-porcelain">
         {step === 1
           ? t.auth.forgotPasswordTitle
           : language === "id"
@@ -86,7 +86,7 @@ function ForgotPasswordForm() {
             : "Reset Password"}
       </h1>
 
-      <p className="mb-8 text-zinc-500 dark:text-zinc-400">
+      <p className="mb-8 text-body text-ash">
         {step === 1
           ? t.auth.forgotPasswordDescription
           : language === "id"
@@ -121,7 +121,7 @@ function ForgotPasswordForm() {
 
             disabled={isSubmitting}
 
-            className="w-full shadow-lg shadow-zinc-900/10 dark:shadow-black/20"
+            className="w-full"
           >
             {isSubmitting ? t.auth.signingIn : language === "id" ? "Lanjutkan" : "Continue"}
           </Button>
@@ -191,7 +191,7 @@ function ForgotPasswordForm() {
 
             disabled={isSubmitting}
 
-            className="w-full shadow-lg shadow-zinc-900/10 dark:shadow-black/20"
+            className="w-full"
           >
             {isSubmitting
               ? language === "id"
@@ -204,11 +204,11 @@ function ForgotPasswordForm() {
         </form>
       )}
 
-      <div className="mt-6 text-center text-sm">
+      <div className="mt-6 text-center text-body">
         <Link
           to="/login"
 
-          className="font-medium text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
+          className="text-electric-link hover:underline"
         >
           ← {t.auth.backToLogin}
         </Link>

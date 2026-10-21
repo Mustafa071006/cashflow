@@ -1,48 +1,13 @@
 import clsx from "clsx";
 
-function Select({
-  label,
-  children,
-  className = "",
-  ...props
-}) {
+function Select({ label, children, className = "", ...props }) {
   return (
     <div className="space-y-2">
-      {label && (
-        <label className="text-sm font-medium text-zinc-700 dark:text-zinc-200">
-          {label}
-        </label>
-      )}
+      {label && <label className="block text-utility font-semibold text-ash">{label}</label>}
 
       <select
         className={clsx(
-          `
-          w-full
-          rounded-xl
-          border
-          border-zinc-200
-          bg-white
-          px-4
-          py-3
-          text-sm
-          text-zinc-900
-
-          transition-all
-          duration-200
-
-          dark:border-zinc-700
-          dark:bg-zinc-950
-          dark:text-white
-
-          hover:border-zinc-300
-          dark:hover:border-zinc-600
-
-          focus:border-indigo-500
-          focus:outline-none
-          focus:ring-4
-          focus:ring-indigo-500/20
-
-          `,
+          `h-11 w-full rounded-full border border-slate bg-white/4 pr-10 pl-6 text-body text-porcelain transition-colors duration-200 hover:border-ash focus:outline-1 focus:outline-offset-1 focus:outline-apple-blue`,
           className
         )}
         {...props}

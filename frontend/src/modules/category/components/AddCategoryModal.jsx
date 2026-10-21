@@ -171,16 +171,7 @@ function AddCategoryModal({
         <div>
 
 
-          <label
-            className="
-              mb-2
-              block
-              text-sm
-              font-medium
-              text-zinc-900
-              dark:text-white
-            "
-          >
+          <label htmlFor="category-type" className="mb-2 block text-utility font-semibold text-ash">
             {language === "id"
               ? "Tipe"
               : "Type"
@@ -192,35 +183,11 @@ function AddCategoryModal({
 
           <select
 
+            id="category-type"
+
             {...register("type")}
 
-            className="
-              w-full
-              rounded-xl
-
-              border
-              border-zinc-300
-
-              bg-white
-
-              p-3
-
-              text-zinc-900
-
-              transition
-
-              focus:border-zinc-900
-              focus:outline-none
-
-
-              dark:border-zinc-700
-
-              dark:bg-zinc-900
-
-              dark:text-white
-
-              dark:focus:border-white
-            "
+            className="h-11 w-full rounded-full border border-slate bg-white/4 pr-10 pl-6 text-body text-porcelain transition-colors duration-200 hover:border-ash focus:outline-1 focus:outline-offset-1 focus:outline-apple-blue"
 
           >
 

@@ -81,7 +81,7 @@ function Sidebar({ open, onClose }) {
         <div
           onClick={onClose}
           aria-hidden="true"
-          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm lg:hidden"
         />
       )}
 
@@ -90,7 +90,7 @@ function Sidebar({ open, onClose }) {
         aria-label={language === "id" ? "Navigasi utama" : "Main navigation"}
         aria-hidden={!open ? undefined : false}
         tabIndex={-1}
-        className={`fixed inset-y-0 left-0 z-50 flex h-screen w-72 flex-col border-r border-zinc-200 bg-white transition-transform duration-300 lg:static lg:translate-x-0 dark:border-zinc-800 dark:bg-zinc-950 ${
+        className={`fixed inset-y-0 left-0 z-50 flex h-screen w-64 flex-col border-r border-keyline bg-graphite transition-transform duration-300 lg:static lg:translate-x-0 ${
           open ? "translate-x-0" : "-translate-x-full"
         } `}
       >
@@ -100,7 +100,7 @@ function Sidebar({ open, onClose }) {
           <button
             onClick={onClose}
             aria-label={language === "id" ? "Tutup menu" : "Close menu"}
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-200 text-zinc-600 transition hover:bg-zinc-100 focus-visible:ring-2 focus-visible:ring-indigo-500 dark:border-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-900"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-steel/60 text-ash transition hover:bg-steel hover:text-porcelain"
           >
             <X size={20} aria-hidden="true" />
           </button>
@@ -108,18 +108,18 @@ function Sidebar({ open, onClose }) {
 
         {/* BRAND */}
 
-        <div className="px-6 py-7">
+        <div className="px-6 pt-7 pb-5">
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-900 text-white shadow-lg shadow-zinc-900/20 dark:bg-zinc-100 dark:text-zinc-900">
-              <WalletCards size={22} />
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-porcelain text-obsidian">
+              <WalletCards size={20} strokeWidth={1.75} />
             </div>
 
             <div>
-              <h1 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+              <h1 className="font-display text-product-label font-semibold text-porcelain">
                 CashFlow
               </h1>
 
-              <p className="text-xs text-zinc-500 dark:text-zinc-400">
+              <p className="text-utility text-ash">
                 {language === "id" ? "Keuangan Pribadi" : "Personal Finance"}
               </p>
             </div>
@@ -128,7 +128,7 @@ function Sidebar({ open, onClose }) {
 
         {/* MENU */}
 
-        <nav className="flex-1 space-y-2 px-4 py-4">
+        <nav className="flex-1 space-y-1 px-3 py-4">
           {menus.map((menu) => {
             const Icon = menu.icon;
 
@@ -141,18 +141,14 @@ function Sidebar({ open, onClose }) {
                 onClick={onClose}
 
                 className={({ isActive }) =>
-                  `group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition-all duration-200 ${
+                  `group flex items-center gap-3 rounded-full px-4 py-2.5 text-body font-medium transition-colors duration-200 ${
                     isActive
-                      ? `bg-zinc-900 text-white shadow-lg shadow-zinc-900/20 dark:bg-zinc-100 dark:text-zinc-900`
-                      : `text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-100`
-                  } `
+                      ? `bg-white/10 text-porcelain`
+                      : `text-ash hover:bg-white/5 hover:text-porcelain`
+                  }`
                 }
               >
-                <Icon
-                  size={20}
-
-                  className="transition-transform duration-200 group-hover:scale-110"
-                />
+                <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
 
                 <span>{menu.name}</span>
               </NavLink>
@@ -162,7 +158,7 @@ function Sidebar({ open, onClose }) {
 
         {/* FOOTER */}
 
-        <div className="border-t border-zinc-200 px-6 py-4 text-xs text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+        <div className="border-t border-keyline px-6 py-4 text-utility text-slate">
           CashFlow v1.0
         </div>
       </aside>

@@ -13,107 +13,35 @@ function Button({
   ...props
 }) {
   const reduced = usePrefersReducedMotion();
+
   const variants = {
-    primary: `
-      bg-zinc-900
-      text-white
-      shadow-sm
+    primary: `bg-porcelain text-obsidian hover:bg-white`,
 
-      hover:bg-zinc-800
-      hover:shadow-lg
-      hover:shadow-zinc-900/20
+    secondary: `border border-slate bg-transparent text-porcelain hover:bg-white/5`,
 
+    ghost: `text-ash hover:bg-white/5 hover:text-porcelain`,
 
-      dark:bg-zinc-100
-      dark:text-zinc-900
-      dark:hover:bg-white
-      dark:hover:shadow-black/20
-      `,
+    destructive: `border border-expense/40 bg-transparent text-expense hover:bg-expense/10`,
 
-    secondary: `
-      border
-      border-zinc-200
-
-      bg-white
-
-      text-zinc-900
-
-      hover:bg-zinc-50
-
-
-      dark:border-zinc-700
-
-      dark:bg-zinc-900
-
-      dark:text-zinc-100
-
-      dark:hover:bg-zinc-800
-      `,
-
-    ghost: `
-      text-zinc-600
-
-      hover:bg-zinc-100
-      hover:text-zinc-900
-
-
-      dark:text-zinc-400
-
-      dark:hover:bg-zinc-800
-
-      dark:hover:text-zinc-100
-      `,
-
-    destructive: `
-      border
-      border-red-200
-
-      bg-white
-
-      text-red-600
-
-      hover:bg-red-50
-
-
-      dark:border-red-500/30
-
-      dark:bg-zinc-900
-
-      dark:text-red-400
-
-      dark:hover:bg-red-500/10
-      `,
+    danger: `bg-expense text-white hover:bg-expense/90`,
   };
 
   const sizes = {
-    sm: `
-      h-9
-      px-3
-      text-sm
-      `,
+    sm: `h-8 px-3.5 text-utility`,
 
-    md: `
-      h-11
-      px-5
-      text-sm
-      `,
+    md: `h-10 px-5 text-body`,
 
-    lg: `
-      h-12
-      px-6
-      text-base
-      `,
+    lg: `h-12 px-6 text-section-nav`,
   };
 
   return (
     <motion.button
       whileTap={reduced || disabled || loading ? undefined : { scale: 0.97 }}
-      whileHover={reduced || disabled || loading ? undefined : { scale: 1.01 }}
       transition={{ duration: 0.15 }}
       disabled={disabled || loading}
       aria-busy={loading || undefined}
       className={clsx(
-        `inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-colors duration-200 focus:ring-4 focus:ring-zinc-200 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:focus:ring-zinc-700`,
+        `inline-flex items-center justify-center gap-2 rounded-full font-medium transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-40`,
         variants[variant],
         sizes[size],
         className

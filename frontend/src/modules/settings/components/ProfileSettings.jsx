@@ -41,11 +41,11 @@ function ProfileSettings() {
     <Card>
       <div className="space-y-5">
         <div>
-          <h2 className="text-lg font-semibold text-zinc-900 dark:text-white">
+          <h2 className="font-display text-product-label font-semibold text-porcelain">
             {language === "id" ? "Profil" : "Profile"}
           </h2>
 
-          <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="mt-1 text-body text-ash">
             {language === "id"
               ? "Kelola informasi pribadi Anda."
               : "Manage your personal information."}
@@ -56,19 +56,19 @@ function ProfileSettings() {
           <>
             <div className="space-y-4">
               <div>
-                <label className="text-sm text-zinc-500 dark:text-zinc-400">
+                <label className="text-utility font-semibold text-ash">
                   {language === "id" ? "Nama" : "Name"}
                 </label>
 
-                <p className="mt-1 text-base font-medium text-zinc-900 dark:text-white">
+                <p className="mt-1 text-section-nav text-porcelain">
                   {user?.name || "-"}
                 </p>
               </div>
 
               <div>
-                <label className="text-sm text-zinc-500 dark:text-zinc-400">Email</label>
+                <label className="text-utility font-semibold text-ash">Email</label>
 
-                <p className="mt-1 text-base font-medium text-zinc-900 dark:text-white">
+                <p className="mt-1 text-section-nav text-porcelain">
                   {user?.email || "-"}
                 </p>
               </div>

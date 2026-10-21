@@ -59,11 +59,11 @@ function UsersPage() {
       {/* HEADER */}
 
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
+        <h1 className="font-display text-hero-name font-semibold text-porcelain md:text-headline">
           {language === "id" ? "Kelola Pengguna" : "Manage Users"}
         </h1>
 
-        <p className="mt-2 text-zinc-500 dark:text-zinc-400">
+        <p className="mt-2 text-section-nav text-ash">
           {language === "id" ? "Kelola akun pengguna CashFlow." : "Manage CashFlow user accounts."}
         </p>
       </div>

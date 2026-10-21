@@ -27,14 +27,14 @@ function ReportsPage() {
 
   if (error) {
     return (
-      <div className="rounded-xl border border-red-200 bg-red-50 p-6 dark:border-red-800 dark:bg-red-950">
+      <div className="rounded-card bg-carbon p-8">
 
-        <h2 className="text-lg font-semibold text-red-600 dark:text-red-300">
+        <h2 className="font-display text-product-label font-semibold text-porcelain">
           {language === "id" ? "Gagal memuat laporan" : "Unable to load reports"}
         </h2>
 
 
-        <p className="mt-2 text-sm text-red-500 dark:text-red-400">
+        <p className="mt-2 text-body text-ash">
           {language === "id"
             ? "Terjadi kesalahan saat memuat data laporan Anda."
             : "Something went wrong while loading your report data."}
@@ -43,7 +43,7 @@ function ReportsPage() {
 
         <button
           onClick={refresh}
-          className="mt-4 rounded-lg bg-red-600 px-4 py-2 text-white transition hover:bg-red-700"
+          className="mt-6 h-10 rounded-full bg-porcelain px-5 text-body font-medium text-obsidian transition hover:bg-white"
         >
           {language === "id" ? "Coba Lagi" : "Retry"}
         </button>

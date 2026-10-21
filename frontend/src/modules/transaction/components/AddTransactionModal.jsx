@@ -290,169 +290,42 @@ function AddTransactionModal({
 
 
         <div className="space-y-2">
-
-
-          <label
-            className="
-              text-sm
-              font-medium
-              text-zinc-700
-              dark:text-zinc-200
-            "
-          >
-
-            {
-              language === "id"
-                ? "Tipe"
-                : "Type"
-            }
-
-          </label>
-
-
-
-
+          <p id="transaction-type-label" className="text-utility font-semibold text-ash">
+            {language === "id" ? "Tipe" : "Type"}
+          </p>
 
           <div
-            className="
-              grid
-              grid-cols-2
-              gap-3
-            "
+            role="radiogroup"
+            aria-labelledby="transaction-type-label"
+            className="grid grid-cols-2 gap-1 rounded-full border border-slate bg-white/4 p-1"
           >
-
-
-
             <button
-
               type="button"
-
-              onClick={() =>
-                setType("EXPENSE")
-              }
-
-
-              className={`
-
-                rounded-xl
-
-                border
-
-                px-4
-
-                py-3
-
-                text-sm
-
-                font-medium
-
-                transition
-
-
-                ${
-                  type === "EXPENSE"
-
-                    ? `
-                      border-red-500
-                      bg-red-500/10
-                      text-red-500
-                    `
-
-                    : `
-                      border-zinc-300
-                      text-zinc-500
-                      hover:bg-zinc-100
-
-                      dark:border-zinc-700
-                      dark:text-zinc-400
-                      dark:hover:bg-zinc-800
-                    `
-                }
-
-              `}
-
+              role="radio"
+              aria-checked={type === "EXPENSE"}
+              onClick={() => setType("EXPENSE")}
+              className={`flex h-9 items-center justify-center gap-2 rounded-full text-body font-medium transition-colors ${
+                type === "EXPENSE" ? "bg-steel text-porcelain" : "text-ash hover:text-porcelain"
+              }`}
             >
-
-              {
-                language === "id"
-                  ? "Pengeluaran"
-                  : "Expense"
-              }
-
+              <span aria-hidden="true" className="h-2 w-2 rounded-full bg-expense" />
+              {language === "id" ? "Pengeluaran" : "Expense"}
             </button>
 
-
-
-
-
             <button
-
               type="button"
-
-              onClick={() =>
-                setType("INCOME")
-              }
-
-
-              className={`
-
-                rounded-xl
-
-                border
-
-                px-4
-
-                py-3
-
-                text-sm
-
-                font-medium
-
-                transition
-
-
-                ${
-                  type === "INCOME"
-
-                    ? `
-                      border-green-500
-                      bg-green-500/10
-                      text-green-500
-                    `
-
-                    : `
-                      border-zinc-300
-                      text-zinc-500
-                      hover:bg-zinc-100
-
-                      dark:border-zinc-700
-                      dark:text-zinc-400
-                      dark:hover:bg-zinc-800
-                    `
-                }
-
-              `}
-
+              role="radio"
+              aria-checked={type === "INCOME"}
+              onClick={() => setType("INCOME")}
+              className={`flex h-9 items-center justify-center gap-2 rounded-full text-body font-medium transition-colors ${
+                type === "INCOME" ? "bg-steel text-porcelain" : "text-ash hover:text-porcelain"
+              }`}
             >
-
-              {
-                language === "id"
-                  ? "Pemasukan"
-                  : "Income"
-              }
-
+              <span aria-hidden="true" className="h-2 w-2 rounded-full bg-income" />
+              {language === "id" ? "Pemasukan" : "Income"}
             </button>
-
-
-
           </div>
-
-
         </div>
-
-
-
-
 
         <Select
 

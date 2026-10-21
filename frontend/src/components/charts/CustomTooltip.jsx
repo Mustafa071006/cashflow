@@ -18,52 +18,48 @@ function CustomTooltip({ active, payload, label }) {
   const cashflow = income - expense;
 
   return (
-    <div className="min-[220px] rounded-2xl border border-zinc-700 bg-zinc-900 p-4 shadow-2xl">
-      <p className="mb-4 text-sm font-semibold text-zinc-300">📅 {label}</p>
+    <div className="min-w-55 rounded-nav bg-graphite/95 p-4 ring-1 ring-keyline backdrop-blur-xl">
+      <p className="mb-3 text-utility font-semibold text-ash">{label}</p>
 
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         {/* INCOME */}
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-6">
           <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded-full bg-green-500" />
+            <div className="h-2 w-2 rounded-full bg-income" />
 
-            <span className="text-sm text-zinc-400">
-              {language === "id" ? "Pemasukan" : "Income"}
-            </span>
+            <span className="text-body text-ash">{language === "id" ? "Pemasukan" : "Income"}</span>
           </div>
 
-          <span className="font-semibold text-green-400">
+          <span className="text-body font-semibold text-income">
             {formatChartCurrency(income, language)}
           </span>
         </div>
 
         {/* EXPENSE */}
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-6">
           <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded-full bg-red-500" />
+            <div className="h-2 w-2 rounded-full bg-expense" />
 
-            <span className="text-sm text-zinc-400">
-              {language === "id" ? "Pengeluaran" : "Expense"}
-            </span>
+            <span className="text-body text-ash">{language === "id" ? "Pengeluaran" : "Expense"}</span>
           </div>
 
-          <span className="font-semibold text-red-400">
+          <span className="text-body font-semibold text-expense">
             {formatChartCurrency(expense, language)}
           </span>
         </div>
 
-        <div className="my-2 border-t border-zinc-700" />
+        <div className="my-2 border-t border-steel" />
 
         {/* NET CASH FLOW */}
 
-        <div className="flex items-center justify-between">
-          <span className="font-medium text-white">
+        <div className="flex items-center justify-between gap-6">
+          <span className="text-body font-medium text-porcelain">
             {language === "id" ? "Arus Kas Bersih" : "Net Cash Flow"}
           </span>
 
-          <span className={`font-bold ${cashflow >= 0 ? "text-green-400" : "text-red-400"} `}>
+          <span className={`text-body font-semibold ${cashflow >= 0 ? "text-income" : "text-expense"}`}>
             {cashflow >= 0 ? "+" : "-"}
 
             {formatChartCurrency(Math.abs(cashflow), language)}

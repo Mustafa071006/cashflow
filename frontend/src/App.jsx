@@ -9,29 +9,32 @@ function App() {
       <RouterProvider router={router} />
 
       <Toaster
-  position="top-center"
-  toastOptions={{
-    duration: 2500,
-    style: {
-      borderRadius: "12px",
-      background: "#18181b",
-      color: "#fff",
-      border: "1px solid #3f3f46",
-    },
-    success: {
-      iconTheme: {
-        primary: "#22c55e",
-        secondary: "#fff",
-      },
-    },
-    error: {
-      iconTheme: {
-        primary: "#ef4444",
-        secondary: "#fff",
-      },
-    },
-  }}
-/>
+        position="top-center"
+        toastOptions={{
+          duration: 2500,
+          style: {
+            borderRadius: "9999px",
+            background: "#1d1d1f",
+            color: "#f5f5f7",
+            border: "1px solid #333336",
+            fontSize: "14px",
+            letterSpacing: "-0.224px",
+            padding: "10px 16px",
+          },
+          success: {
+            iconTheme: {
+              primary: "#30d158",
+              secondary: "#000000",
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: "#ff453a",
+              secondary: "#000000",
+            },
+          },
+        }}
+      />
     </>
   );
 }

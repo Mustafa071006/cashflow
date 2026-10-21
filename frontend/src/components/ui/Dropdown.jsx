@@ -48,7 +48,7 @@ function Dropdown({ value, onChange, options = [], className = "", label }) {
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={label}
-        className="flex w-full items-center justify-between gap-3 rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm font-medium text-zinc-900 transition hover:border-indigo-400 focus-visible:ring-2 focus-visible:ring-indigo-500 dark:border-zinc-700 dark:bg-zinc-950 dark:text-white"
+        className="flex h-10 w-full items-center justify-between gap-3 rounded-full border border-slate bg-white/4 pr-4 pl-5 text-body text-porcelain transition hover:border-ash"
       >
         <span>{selectedOption?.label}</span>
 
@@ -73,7 +73,7 @@ function Dropdown({ value, onChange, options = [], className = "", label }) {
             )}
             role="listbox"
             id={listboxId}
-            className="absolute top-full left-0 z-50 mt-2 w-full origin-top overflow-hidden rounded-xl border border-zinc-200 bg-white p-1 shadow-xl dark:border-zinc-800 dark:bg-zinc-900"
+            className="absolute top-full left-0 z-50 mt-2 w-full min-w-44 origin-top overflow-hidden rounded-nav bg-graphite/95 p-1.5 ring-1 ring-keyline backdrop-blur-xl"
           >
             {options.map((option) => (
               <button
@@ -82,10 +82,10 @@ function Dropdown({ value, onChange, options = [], className = "", label }) {
                 role="option"
                 aria-selected={option.value === value}
                 onClick={() => handleSelect(option)}
-                className={`w-full rounded-lg px-3 py-2.5 text-left text-sm transition ${
+                className={`w-full rounded-link px-3 py-2 text-left text-body transition ${
                   option.value === value
-                    ? `bg-indigo-500/10 text-indigo-500`
-                    : `text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800`
+                    ? `bg-white/8 text-porcelain`
+                    : `text-ash hover:bg-white/5 hover:text-porcelain`
                 } `}
               >
                 {option.label}

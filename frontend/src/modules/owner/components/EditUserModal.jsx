@@ -45,17 +45,17 @@ function EditUserModal({ open, user, onClose, onSubmit }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4 backdrop-blur-sm">
-      <div className="w-full max-w-md rounded-3xl border border-zinc-200 bg-white p-6 shadow-2xl dark:border-zinc-800 dark:bg-zinc-950">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 backdrop-blur-md">
+      <div className="w-full max-w-md rounded-card bg-carbon p-6 ring-1 ring-keyline sm:p-8">
         {/* HEADER */}
 
-        <div className="mb-6 flex items-center justify-between">
+        <div className="mb-6 flex items-start justify-between gap-4">
           <div>
-            <h2 className="text-xl font-bold text-zinc-900 dark:text-white">
+            <h2 className="font-display text-feature-stat font-semibold text-porcelain">
               {language === "id" ? "Ubah Pengguna" : "Edit User"}
             </h2>
 
-            <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+            <p className="mt-2 text-body text-ash">
               {language === "id" ? "Perbarui informasi pengguna." : "Update the user's information."}
             </p>
           </div>
@@ -63,9 +63,9 @@ function EditUserModal({ open, user, onClose, onSubmit }) {
           <button
             onClick={onClose}
             aria-label={language === "id" ? "Tutup" : "Close"}
-            className="flex h-9 w-9 items-center justify-center rounded-xl text-zinc-500 transition hover:bg-zinc-100 focus-visible:ring-2 focus-visible:ring-indigo-500 dark:hover:bg-zinc-900"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-steel/60 text-ash transition hover:bg-steel hover:text-porcelain"
           >
-            <X size={18} aria-hidden="true" />
+            <X size={16} aria-hidden="true" />
           </button>
         </div>
 
@@ -97,18 +97,20 @@ function EditUserModal({ open, user, onClose, onSubmit }) {
           />
 
           <div>
-            <label className="mb-2 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+            <label htmlFor="edit-user-role" className="mb-2 block text-utility font-semibold text-ash">
               Role
             </label>
 
             <select
+              id="edit-user-role"
+
               name="role"
 
               value={form.role}
 
               onChange={handleChange}
 
-              className="h-11 w-full rounded-xl border border-zinc-200 bg-white px-4 text-sm text-zinc-900 transition outline-none focus:border-zinc-900 dark:border-zinc-800 dark:bg-zinc-900 dark:text-white dark:focus:border-white"
+              className="h-11 w-full rounded-full border border-slate bg-white/4 pr-10 pl-6 text-body text-porcelain transition-colors hover:border-ash focus:outline-1 focus:outline-offset-1 focus:outline-apple-blue"
             >
               <option value="USER">USER</option>
 

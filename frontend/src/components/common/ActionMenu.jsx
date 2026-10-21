@@ -38,7 +38,7 @@ function ActionMenu({ onEdit, onDelete, editLabel = "Edit", deleteLabel = "Delet
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label="More actions"
-        className="rounded-lg p-2 text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 focus-visible:ring-2 focus-visible:ring-indigo-500 dark:hover:bg-zinc-800 dark:hover:text-white"
+        className="rounded-full p-2 text-ash transition hover:bg-white/5 hover:text-porcelain"
       >
         <MoreVertical size={18} aria-hidden="true" />
       </button>
@@ -56,7 +56,7 @@ function ActionMenu({ onEdit, onDelete, editLabel = "Edit", deleteLabel = "Delet
               reduced
             )}
             role="menu"
-            className="absolute top-12 right-0 z-50 w-44 origin-top-right overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-xl dark:border-zinc-700 dark:bg-zinc-900"
+            className="absolute top-11 right-0 z-50 w-44 origin-top-right overflow-hidden rounded-nav bg-graphite/95 p-1.5 ring-1 ring-keyline backdrop-blur-xl"
           >
             <button
               role="menuitem"
@@ -64,9 +64,9 @@ function ActionMenu({ onEdit, onDelete, editLabel = "Edit", deleteLabel = "Delet
                 setOpen(false);
                 onEdit();
               }}
-              className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm text-zinc-700 transition hover:bg-zinc-100 dark:text-white dark:hover:bg-zinc-800"
+              className="flex w-full items-center gap-3 rounded-link px-3 py-2.5 text-left text-body text-porcelain transition hover:bg-white/5"
             >
-              <Pencil size={16} className="text-blue-500" aria-hidden="true" />
+              <Pencil size={16} className="text-ash" aria-hidden="true" />
               {editLabel}
             </button>
 
@@ -76,9 +76,9 @@ function ActionMenu({ onEdit, onDelete, editLabel = "Edit", deleteLabel = "Delet
                 setOpen(false);
                 onDelete();
               }}
-              className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm text-red-600 transition hover:bg-red-50 dark:text-red-400 dark:hover:bg-zinc-800"
+              className="flex w-full items-center gap-3 rounded-link px-3 py-2.5 text-left text-body text-expense transition hover:bg-expense/10"
             >
-              <Trash2 size={16} className="text-red-500" aria-hidden="true" />
+              <Trash2 size={16} aria-hidden="true" />
               {deleteLabel}
             </button>
           </motion.div>

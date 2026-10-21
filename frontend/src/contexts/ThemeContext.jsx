@@ -1,46 +1,15 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect } from "react";
 
 const ThemeContext = createContext(null);
 
+// The UI follows a single dark design (claude/DESIGN.md), so the theme is fixed.
 export function ThemeProvider({ children }) {
-  const getInitialTheme = () => {
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme) {
-      return savedTheme;
-    }
-
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  };
-
-  const [theme, setTheme] = useState(getInitialTheme);
-
   useEffect(() => {
-    const root = document.documentElement;
+    document.documentElement.classList.add("dark");
+    localStorage.removeItem("theme");
+  }, []);
 
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  };
-
-  return (
-    <ThemeContext.Provider
-      value={{
-        theme,
-        toggleTheme,
-      }}
-    >
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ theme: "dark" }}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme() {

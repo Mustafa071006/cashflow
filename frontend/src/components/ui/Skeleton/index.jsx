@@ -3,7 +3,7 @@ function Skeleton({ className = "" }) {
     <div
       role="presentation"
       aria-hidden="true"
-      className={`relative overflow-hidden rounded-xl bg-zinc-200 dark:bg-zinc-800 ${className}`}
+      className={`relative overflow-hidden rounded-nav bg-carbon ${className}`}
     >
       <span className="animate-shimmer absolute inset-0" />
     </div>

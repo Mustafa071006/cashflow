@@ -10,24 +10,9 @@ function ReportHeader() {
 
 
   return (
-    <div
-      className="
-        flex
-        flex-col
-        gap-2
-      "
-    >
+    <div className="flex flex-col gap-2">
 
-      <h1
-        className="
-          text-3xl
-          font-bold
-          tracking-tight
-
-          text-gray-900
-          dark:text-white
-        "
-      >
+      <h1 className="font-display text-hero-name font-semibold text-porcelain md:text-headline">
         {
           language === "id"
             ? "Laporan"
@@ -37,14 +22,7 @@ function ReportHeader() {
 
 
 
-      <p
-        className="
-          text-sm
-
-          text-gray-500
-          dark:text-gray-400
-        "
-      >
+      <p className="text-section-nav text-ash">
         {
           language === "id"
             ? "Pantau pemasukan, pengeluaran, dan performa keuangan Anda."
